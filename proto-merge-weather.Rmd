@@ -177,7 +177,11 @@ corrected_chart_df
 
 The weather between Oakland and Tangiers is actually pretty similar until May, when Morocco becomes much warmer. The two cities have similar temperature profiles again starting in October. 
 
-What would someone in Tangiers think of Oakland, in terms of degrees celsius? **Notice the scale of the y-axis has changed**
+What would someone in Tangiers think of Oakland, in terms of degrees celsius? 
+
+# Notice the scale of the y-axis has changed
+
+Using the same function, but selecting a different unit for the outputs. 
 
 ```{r}
 final_output2 <- fuse_weather_data(oakland_df, tangiers_df, oakland_meta, tangiers_meta, coercion = 'Celsius')
@@ -193,7 +197,8 @@ corrected_chart_df2
 ```
 
 **Imagine** if there was a much larger metadata dictionary and framework that an algorithm could reference to merge data together across data sources that were "strangers" to one another but __that were well defined__. A thoughtful framework would allow a naive end user to more easily bring together data sets that might otherwise require multiple steps in the ETL process.  
-# sanity tests
+
+## sanity tests
 
 Quick and dirty tests of the functions working
 

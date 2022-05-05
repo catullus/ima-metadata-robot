@@ -208,7 +208,11 @@ until May, when Morocco becomes much warmer. The two cities have similar
 temperature profiles again starting in October.
 
 What would someone in Tangiers think of Oakland, in terms of degrees
-celsius? **Notice the scale of the y-axis has changed**
+celsius?
+
+# Notice the scale of the y-axis has changed
+
+Using the same function, but selecting a different unit for the outputs.
 
 ``` r
 final_output2 <- fuse_weather_data(oakland_df, tangiers_df, oakland_meta, tangiers_meta, coercion = 'Celsius')
@@ -230,8 +234,9 @@ that an algorithm could reference to merge data together across data
 sources that were “strangers” to one another but **that were well
 defined**. A thoughtful framework would allow a naive end user to more
 easily bring together data sets that might otherwise require multiple
-steps in the ETL process.  
-\# sanity tests
+steps in the ETL process.
+
+## sanity tests
 
 Quick and dirty tests of the functions working
 
