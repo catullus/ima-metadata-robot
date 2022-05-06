@@ -162,16 +162,16 @@ converter <- function(input_df, conversion = conversion, ...){
         
         ## perform simple conversion
         conversion_direction <- if (conversion == 'fahrenheit' & detected_unit == 'celsius'){
-            # multiply input by 9/5 then add 32
-            input_df$temp <- (input_df$temp * (9/5)) + 32
-            input_df$measurement_units <- conversion
-            return(input_df)
+                # multiply input by 9/5 then add 32
+                input_df$temp <- (input_df$temp * (9/5)) + 32
+                input_df$measurement_units <- conversion
+                return(input_df)
             
             } else if (conversion == 'celsius' & detected_unit == 'fahrenheit'){
-            # multiply input by 5/9 then subtract 32
-            input_df$temp <- (input_df$temp - 32)  * (5/9)
-            input_df$measurement_units <- conversion
-            return(input_df)
+                # multiply input by 5/9 then subtract 32
+                input_df$temp <- (input_df$temp - 32)  * (5/9)
+                input_df$measurement_units <- conversion
+                return(input_df)
                 
             } else if (conversion == detected_unit) {
                 # preserve numeric inputs
