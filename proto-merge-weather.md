@@ -103,12 +103,24 @@ networks around the world such as `source`, `measurement_type`,
 ``` r
 oakland_meta <- data.frame(source = 'Oakland, California, USA',
                            measurement_type = 'avg_daily_temp', 
-                           measurement_units = 'fahrenheit')
+                           measurement_units = 'fahrenheit',
+                           measurement_freq = '5-minute',
+                           sensor_type = 'Adafruit 642')
 
 tangiers_meta <- data.frame(source = 'Tangiers, Morocco, Africa',
                            measurement_type = 'avg_daily_temp', 
-                           measurement_units = 'celsius')
+                           measurement_units = 'celsius',
+                           measurement_freq = '15-minute',
+                           sensor_type = 'Campbell 107')
 ```
+
+Think of this as a “one-dimensional” data fusion problem. The two data
+sets are very similar except for the reported `measurement_units`.
+Sources that ostensibly measure the same phenomena may also differ in
+their `measurement_type`, sampling intervals (e.g. `measurement_freq`),
+or in the equipment used (`sensor_type`). All of these variations may
+introduce bias, consistency, veracity, and/or accuracy problems if
+they’re merged without consideration.
 
 # A coherent data fusion framework
 
@@ -162,16 +174,16 @@ converter <- function(input_df, conversion = conversion, ...){
         
         ## perform simple conversion
         conversion_direction <- if (conversion == 'fahrenheit' & detected_unit == 'celsius'){
-                # multiply input by 9/5 then add 32
-                input_df$temp <- (input_df$temp * (9/5)) + 32
-                input_df$measurement_units <- conversion
-                return(input_df)
+            # multiply input by 9/5 then add 32
+            input_df$temp <- (input_df$temp * (9/5)) + 32
+            input_df$measurement_units <- conversion
+            return(input_df)
             
             } else if (conversion == 'celsius' & detected_unit == 'fahrenheit'){
-                # multiply input by 5/9 then subtract 32
-                input_df$temp <- (input_df$temp - 32)  * (5/9)
-                input_df$measurement_units <- conversion
-                return(input_df)
+            # multiply input by 5/9 then subtract 32
+            input_df$temp <- (input_df$temp - 32)  * (5/9)
+            input_df$measurement_units <- conversion
+            return(input_df)
                 
             } else if (conversion == detected_unit) {
                 # preserve numeric inputs
@@ -249,9 +261,9 @@ Do the functions in concert return relevant output data?
 # tangiers_test <- data.frame(tangiers_df, tangiers_meta)
 
 # ## manual function tests
-# blyat <- converter(oakland_test, conversion = 'celsius'); blyat
-# blyat2 <- converter(oakland_test, conversion = 'fahrenheit'); blyat2
+# block <- converter(oakland_test, conversion = 'celsius'); block
+# block2 <- converter(oakland_test, conversion = 'fahrenheit'); block2
 # 
-# blyat3 <- converter(tangiers_test, conversion = 'fahrenheit'); blyat3
-# blyat4 <- converter(tangiers_test, conversion = 'celsius'); blyat4
+# block3 <- converter(tangiers_test, conversion = 'fahrenheit'); block3
+# block4 <- converter(tangiers_test, conversion = 'celsius'); block4
 ```
