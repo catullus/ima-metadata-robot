@@ -80,9 +80,11 @@ ggplot(data = combined_df, aes(x = months,
 After charting, these two cities look VERY different despite being at
 the same latitude of 35 degrees. We look at the figure and our gut tells
 us that there’s no way Oakland (red) can be roughly TWICE as hot as
-Tangiers, Morocco (blue)! Said another way, Tangiers doesn’t feel like a
+Tangiers, Morocco (blue)! 
+
+Said another way, Tangiers doesn’t feel like a
 place that would be 30 degrees Fahrenheit on average throughout the
-year. What little info and experience we have suggests that Tangiers
+year (i.e. always frozen). What little info and experience we have suggests that Tangiers
 should be warmer than Oakland throughout the year, but certainly not
 cooler.
 
