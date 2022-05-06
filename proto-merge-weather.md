@@ -14,14 +14,14 @@ at a Moroccan restaurant. Tangiers, Morocco is one such city on the east
 side of the Atlantic.
 
 **Problem**: weather stations outside of the US record temperature in
-degrees Celsius versus the US’s degrees Farenheit.
+degrees Celsius versus the US’s degrees Fahrenheit.
 
 **A Future Problem**: someone is curious about average temperatures at
 35 degrees latitude across the rest of the earth in comparison to
 Oakland. Each particular region or country has its own weather services
-(APIs), measurement/sensor equipment, and reporting frequencies even.
+(APIs), measurement/sensor equipment, sampling frequencies etc.
 
-How could you even begin to chart this?
+How could you even begin to chart data from two different sources?
 
 **Data Sources**
 
