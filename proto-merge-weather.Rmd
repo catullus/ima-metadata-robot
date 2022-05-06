@@ -211,10 +211,10 @@ Do the functions in concert return relevant output data?
 # tangiers_test <- data.frame(tangiers_df, tangiers_meta)
 
 # ## manual function tests
-# blyat <- converter(oakland_test, conversion = 'celsius'); blyat
-# blyat2 <- converter(oakland_test, conversion = 'fahrenheit'); blyat2
+# block <- converter(oakland_test, conversion = 'celsius'); block
+# block2 <- converter(oakland_test, conversion = 'fahrenheit'); block2
 # 
-# blyat3 <- converter(tangiers_test, conversion = 'fahrenheit'); blyat3
-# blyat4 <- converter(tangiers_test, conversion = 'celsius'); blyat4
+# block3 <- converter(tangiers_test, conversion = 'fahrenheit'); block3
+# block4 <- converter(tangiers_test, conversion = 'celsius'); block4
 ```
 
